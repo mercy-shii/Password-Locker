@@ -1,5 +1,6 @@
 import unittest 
 from user import User 
+from user import Account
 
 class TestUser(unittest.TestCase):
 
@@ -14,7 +15,8 @@ class TestUser(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_user = User("Mercy","Facebook","shii254") 
+        self.new_user = User("Mercy","Facebook","shii254")
+        self.new_account = Account("Wendo","254") 
 
 
     def test_init(self):
@@ -25,6 +27,8 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.name,"Mercy")
         self.assertEqual(self.new_user.account,"Facebook")
         self.assertEqual(self.new_user.passwords,"shii254")
+        self.assertEqual(self.new_account.name,"Wendo")
+        self.assertEqual(self.new_account.password,"254")
 
     def test_save_user(self):
         '''
