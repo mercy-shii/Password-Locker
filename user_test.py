@@ -37,8 +37,7 @@ class TestUser(unittest.TestCase):
         '''
         self.new_user.save_user() 
         self.assertEqual(len(User.user_list),1)
-
-     
+  
     def test_save_account(self):
         '''
         test_save_user test case to test if the user object is saved into
@@ -101,7 +100,7 @@ class TestUser(unittest.TestCase):
             test_account.save_account()
 
             self.new_account.test_delete_account()
-            self.assertEqual(len(Account.account_list),1)              
+            self.assertEqual(len(account.account_list),1)              
     
     def test_find_user_by_account(self):
         '''
@@ -124,7 +123,7 @@ class TestUser(unittest.TestCase):
         self.assertTrue(user_exists)
 
     def test_display_credentials(self):
-        self.assertEqual(User.display_credentials(), User.user_list)  
+        self.assertEqual(User.display_user(), User.user_list)  
 
     def test_copy_passwords(self):
         """

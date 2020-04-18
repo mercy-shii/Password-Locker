@@ -37,7 +37,7 @@ class User:
         '''
 
         for user in cls.user_list:
-            if user.phone_account == string:
+            if user.account == string:
                 return user   
       
     @classmethod
