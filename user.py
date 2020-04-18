@@ -4,8 +4,8 @@ class User:
     """
     user_list = []
 
-    def _init_(self,username,account,passwords):
-        self.username = username
+    def _init_(self,name,account,passwords):
+        self.name = name
         self.account = account
         self.passwords = passwords
 
