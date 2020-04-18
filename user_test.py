@@ -38,11 +38,27 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user() 
         self.assertEqual(len(User.user_list),1)
 
+     
+    def test_save_account(self):
+        '''
+        test_save_user test case to test if the user object is saved into
+         the user list
+        '''
+        self.new_account.save_account() 
+        self.assertEqual(len(Account.account_list),1)
+    
+
     def tearDown(self):
             '''
             tearDown method that does clean up after each test case has run.
             '''
             User.user_list = []
+
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            Account.account_list = []        
 
     def test_save_multiple_user(self):
             '''
@@ -54,6 +70,17 @@ class TestUser(unittest.TestCase):
             test_user.save_user()
             self.assertEqual(len(User.user_list),2)
 
+    def test_save_multiple_account(self):
+            '''
+            test_save_multiple_user to check if we can save multiple user
+            objects to our user_list
+            '''
+            self.new_account.save_account()
+            test_account = Account("Thayo","huu788") 
+            test_account.save_account()
+            self.assertEqual(len(Account.account_list),2)
+        
+
     def test_delete_user(self):
             '''
             test_delete_user to test if we can remove a user from our user list
@@ -63,7 +90,18 @@ class TestUser(unittest.TestCase):
             test_user.save_user()
 
             self.new_user.delete_user()
-            self.assertEqual(len(User.user_list),1)       
+            self.assertEqual(len(User.user_list),1)   
+
+    def test_delete_account(self):
+            '''
+            test_delete_user to test if we can remove a user from our user list
+            '''
+            self.new_account.save_account()
+            test_account = Account("Amani","-p0lo") 
+            test_account.save_account()
+
+            self.new_account.test_delete_account()
+            self.assertEqual(len(Account.account_list),1)              
     
     def test_find_user_by_account(self):
         '''
@@ -80,20 +118,20 @@ class TestUser(unittest.TestCase):
 
     def test_user_exists(self):
         self.new_user.save_user()
-        test_user = User("me", "linkedIn", "12@12")
+        test_user = User("Sare", "linkedIn", "0897")
         test_user.save_user()
         user_exists = User.user_exists("linkedIn")
         self.assertTrue(user_exists)
 
     def test_display_credentials(self):
-        self.assertEqual(User.display_credentials(), User.User_list)  
+        self.assertEqual(User.display_credentials(), User.user_list)  
 
     def test_copy_passwords(self):
         """
         this method tests coping the password to clip board
         """
-        self.new_credentials.save_details()
-        User.copy_passwords("facebook")
+        self.new_user.save_user()
+        User.copy_passwords("Facebook")
         self.assertEqual(self.new_credentials.passwords, pyperclip.paste())
     
 
