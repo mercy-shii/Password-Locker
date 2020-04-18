@@ -41,21 +41,21 @@ class User:
                 return user   
       
     @classmethod
-    def credentials_exists(cls, string):
+    def user_exists(cls, string):
         """
         method that helps to confirm the existence of the account and the returns boolean
         """
-        for credentials in cls.User_list:
-            if credentials.account == string:
+        for user in cls.user_list:
+            if user.account == string:
                 return True
         return False  
 
     @classmethod
-    def display_credentials(cls):
+    def display_user(cls):
         """
         method that returns the User list
         """
-        return cls.User_list
+        return cls.user_list
 
     @classmethod
     def copy_passwords(cls, string):
@@ -68,5 +68,11 @@ class Account:
     def __init__(self, name, password):
         self.name = name
         self.password = password
+
+    def save_account(self):
+        Account.account_list.append(self)
+
+    def delete_account(self):
+        Account.account_list.remove(self)    
 
 
