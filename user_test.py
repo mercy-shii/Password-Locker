@@ -73,6 +73,24 @@ class TestUser(unittest.TestCase):
         found_user = User.find_by_account("whatsapp")
 
         self.assertEqual(found_account.passwords,test_user.passwords)
+
+    def test_user_exists(self):
+        self.new_user.save_user()
+        test_user = User("me", "linkedIn", "12@12")
+        test_user.save_user()
+        user_exists = User.user_exists("linkedIn")
+        self.assertTrue(user_exists)
+
+    def test_display_credentials(self):
+        self.assertEqual(User.display_credentials(), User.User_list)  
+
+    def test_copy_passwords(self):
+        """
+        this method tests coping the password to clip board
+        """
+        self.new_credentials.save_details()
+        User.copy_passwords("facebook")
+        self.assertEqual(self.new_credentials.passwords, pyperclip.paste())
     
 
 
