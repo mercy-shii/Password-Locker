@@ -24,14 +24,14 @@ class TestContact(unittest.TestCase):
 
         self.assertEqual(self.new_credentials.username_name,"Mercy")
         self.assertEqual(self.new_credentials.account_name,"Twitter")
-        self.assertEqual(self.new_credentials.account_number,"001")
+        self.assertEqual(self.new_credentials.account_password,"001")
 
     def test_save_credentials(self):
         '''
         test_save_credentials test case to test if the credentials object is saved into
          the credentials list
         '''
-        self.new_credentials.test_save_credentials() 
+        self.new_credentials.save_credentials() 
         self.assertEqual(len(Credentials.credentials_list),1)
     
         
