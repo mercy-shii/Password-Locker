@@ -36,7 +36,7 @@ class TestUser(unittest.TestCase):
          the user list
         '''
         self.new_user.save_user() 
-        self.assertEqual(len(User.user_list),1)
+        self.assertEqual(len(user.user_list),1)
   
     def test_save_account(self):
         '''
@@ -59,7 +59,7 @@ class TestUser(unittest.TestCase):
             '''
             Account.account_list = []        
 
-    def test_save_multiple_user(self):
+    def test_save_multiple_saves(self):
             '''
             test_save_multiple_user to check if we can save multiple user
             objects to our user_list
@@ -69,7 +69,7 @@ class TestUser(unittest.TestCase):
             test_user.save_user()
             self.assertEqual(len(User.user_list),2)
 
-    def test_save_multiple_account(self):
+    def test_save_multiple_saves(self):
             '''
             test_save_multiple_user to check if we can save multiple user
             objects to our user_list
@@ -111,7 +111,7 @@ class TestUser(unittest.TestCase):
         test_user = User("Candy","whatsapp","abebe89") 
         test_user.save_user()
 
-        found_user = User.find_by_account("whatsapp")
+        found_account = User.find_by_account("whatsapp")
 
         self.assertEqual(found_account.passwords,test_user.passwords)
 
@@ -122,7 +122,7 @@ class TestUser(unittest.TestCase):
         user_exists = User.user_exists("linkedIn")
         self.assertTrue(user_exists)
 
-    def test_display_credentials(self):
+    def test_display_user(self):
         self.assertEqual(User.display_user(), User.user_list)  
 
     def test_copy_passwords(self):
@@ -130,8 +130,8 @@ class TestUser(unittest.TestCase):
         this method tests coping the password to clip board
         """
         self.new_user.save_user()
-        User.copy_passwords("Facebook")
-        self.assertEqual(self.new_credentials.passwords, pyperclip.paste())
+        User.copy_passwords()
+        self.assertEqual(self.new_user.passwords())
     
 
 

@@ -31,7 +31,7 @@ class User:
         Method that takes in a number and returns a user that matches that number.
 
         Args:
-            number: Phone number to search for
+            number: account to search for
         Returns :
             Contact of person that matches the number.
         '''
@@ -60,7 +60,7 @@ class User:
     @classmethod
     def copy_passwords(cls, string):
         password_found = User.find_by_account(string)
-        pyperclip.copy(password_found.passwords)
+        copy(password_found.passwords)
     
 class Account:
     account_list = []
