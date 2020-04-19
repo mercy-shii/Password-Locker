@@ -59,7 +59,20 @@ class TestUser(unittest.TestCase):
             test_user.save_user()
 
             self.new_user.delete_user()
-            self.assertEqual(len(User.user_list),1)         
+            self.assertEqual(len(User.user_list),1)  
+
+    def test_authenticate_user(self):
+        '''
+        test to check if we can authenticate a user_loginusename and password
+        '''
+
+        self.new_user.save_user()
+        test_user = User("Mercy","254") 
+        test_user.save_user()
+
+        authenticated_user = User.authenticate_user("Mercy","254")
+
+        self.assertEqual(authenticated_user,test_user.password)               
     
      
 

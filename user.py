@@ -19,4 +19,28 @@ class User:
         save_user method saves user objects into user_list
         '''
 
-        User.user_list.append(self)    
+        User.user_list.append(self) 
+
+    def delete_user(self):
+
+        '''
+        delete_user method deletes a saved user from the user_list
+        '''
+
+        User.user_list.remove(self) 
+
+    @classmethod
+    def authenticate_user(cls,login_username,password):
+        '''
+        Method that takes in login_username and password
+
+        Args:
+            login_username : name
+            password :password
+        Returns :
+            password.
+        '''
+
+        for user in cls.user_list:
+            if user.login_username == login_username and user.password == password:
+                return password         
