@@ -55,9 +55,9 @@ def main():
     print('\n')
 
     while True:
-        print("Use these short code:nu - new user,li - log in")
-        authentication_short_code = input().lower()
-        if authentication_short_code == 'nu':
+        print("Use these short code:nc - new credentials,li - log in")
+        validation_short_code = input().lower()
+        if validation_short_code == 'nc':
             print("New account")
             print("_"*20)
             print("Username")
@@ -70,14 +70,14 @@ def main():
             print(f"Account for {login_username} created.proceed to login")
             print('\n')
 
-        elif authentication_short_code == 'li':
+        elif validation_short_code == 'li':
             print("Enter your user name")
             login_username = input()
             print("Enter your password")
             password = input()
 
-            authenticated_password = user_authenticate(login_username,password)
-            if authenticated_password == password:
+            validated_password = user_validate(login_username,password)
+            if validated_password == password:
                 print("You have successfully logged in")
             else:
                 print("Invalid username and password try again")
