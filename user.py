@@ -30,7 +30,7 @@ class User:
         User.user_list.remove(self) 
 
     @classmethod
-    def authenticate_user(cls,login_username,password):
+    def validate_user(cls,login_username,password):
         '''
         Method that takes in login_username and password
 
