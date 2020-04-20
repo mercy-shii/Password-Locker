@@ -76,7 +76,7 @@ def main():
             print("Enter your password")
             password = input()
 
-            authenticated_password = authenticate(login_username,password)
+            authenticated_password = user_authenticate(login_username,password)
             if authenticated_password == password:
                 print("You have successfully logged in")
             else:
