@@ -2,19 +2,19 @@
 from user import user
 from credentials import credentials
 
-def create_user(loginusername,password):
+def create_user(login_username,password):
     '''
     Function to create a new user
     '''
-    new_user = User(loginusername,password)
+    new_user = User(login_username,password)
     return new_user
 
 
-def create_credentials(username,account_name,account_password):
+def create_credentials(username_name,account_name,account_password):
     '''
     Function to create a new credentials
     '''
-    new_credentials = Credentials(username,accountname,accountpassword)
+    new_credentials = Credentials(username_name,account_name,account_password)
     return new_credentials  
 
 def save_user(user):
@@ -45,4 +45,54 @@ def display_credentials(credentials):
     '''
     Function to delete a credentials
     '''
-    return Credentials.display_credentials()          
+    return Credentials.display_credentials()  
+
+def main():
+    print("Hello welcome to password locker,what is your name?")
+    user_name = input()
+
+    print(f"Hello {user_name}.what would you like to do?")
+    print('\n')
+
+    while True:
+        print("Use these short code:nu - new user,li - log in")
+        authentication_short_code = input().lower()
+        if authentication_short_code == 'nu':
+            print("New account")
+            print("_"*20)
+            print("Username")
+            login_username = input()
+            print("Password")
+            password = input()
+
+            save_user(create_user(login_username,password))
+            print('\n')
+            print(f"Account for {login_username} created.proceed to login")
+            print('\n')
+
+            elif authentication_short_code == 'li'
+            print("Enter your user name")
+            login_username = input()
+            print("Enter your password")
+            password = input()
+
+            authenticated_password = user_authenticate(login_username,password)
+            if authenticated_password == password:
+                print("You have successfully logged in")
+                else:
+                    print("Invalid username and password try again")
+
+                    else:
+                        print("Invalid option,please use the short code")
+
+if __name__ == '__main__':
+  main()
+                              
+            
+
+
+
+
+
+
+
