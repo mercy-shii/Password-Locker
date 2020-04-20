@@ -70,7 +70,7 @@ def main():
             print(f"Account for {login_username} created.proceed to login")
             print('\n')
 
-            elif authentication_short_code == 'li'
+        elif authentication_short_code == 'li':
             print("Enter your user name")
             login_username = input()
             print("Enter your password")
@@ -79,11 +79,11 @@ def main():
             authenticated_password = user_authenticate(login_username,password)
             if authenticated_password == password:
                 print("You have successfully logged in")
-                else:
-                    print("Invalid username and password try again")
+            else:
+                print("Invalid username and password try again")
 
-                    else:
-                        print("Invalid option,please use the short code")
+    else:
+         print("Invalid option,please use the short code")
 
 if __name__ == '__main__':
   main()
